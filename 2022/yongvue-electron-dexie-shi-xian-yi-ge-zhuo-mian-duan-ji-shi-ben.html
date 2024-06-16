@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>用vue、electron、dexie实现一个桌面端记事本 | The World of Remnant</title>
+    <meta name="description" content="返回目录">
+    <meta name="keywords" content="vuepress, blog">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.be5625b3.css" as="style"><link rel="preload" href="/blog/assets/js/app.831f23c9.js" as="script"><link rel="preload" href="/blog/assets/js/2.5e16314c.js" as="script"><link rel="preload" href="/blog/assets/js/51.5c53e086.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.64ec49ca.js"><link rel="prefetch" href="/blog/assets/js/11.c1ec31c8.js"><link rel="prefetch" href="/blog/assets/js/12.fd9657cd.js"><link rel="prefetch" href="/blog/assets/js/13.9a6fb692.js"><link rel="prefetch" href="/blog/assets/js/14.fc92a04b.js"><link rel="prefetch" href="/blog/assets/js/15.4b5d9999.js"><link rel="prefetch" href="/blog/assets/js/16.47bfd086.js"><link rel="prefetch" href="/blog/assets/js/17.360132d0.js"><link rel="prefetch" href="/blog/assets/js/18.814934d5.js"><link rel="prefetch" href="/blog/assets/js/19.dc44e950.js"><link rel="prefetch" href="/blog/assets/js/20.95609a92.js"><link rel="prefetch" href="/blog/assets/js/21.abc99962.js"><link rel="prefetch" href="/blog/assets/js/22.1c633735.js"><link rel="prefetch" href="/blog/assets/js/23.368b3819.js"><link rel="prefetch" href="/blog/assets/js/24.84cfa114.js"><link rel="prefetch" href="/blog/assets/js/25.d78072b4.js"><link rel="prefetch" href="/blog/assets/js/26.b91b4053.js"><link rel="prefetch" href="/blog/assets/js/27.63592d3c.js"><link rel="prefetch" href="/blog/assets/js/28.a6c5f4d5.js"><link rel="prefetch" href="/blog/assets/js/29.2cc2d531.js"><link rel="prefetch" href="/blog/assets/js/3.734525ca.js"><link rel="prefetch" href="/blog/assets/js/30.226e76be.js"><link rel="prefetch" href="/blog/assets/js/31.719dece8.js"><link rel="prefetch" href="/blog/assets/js/32.087b9062.js"><link rel="prefetch" href="/blog/assets/js/33.0dca821c.js"><link rel="prefetch" href="/blog/assets/js/34.d23dec0e.js"><link rel="prefetch" href="/blog/assets/js/35.6504801c.js"><link rel="prefetch" href="/blog/assets/js/36.b3632338.js"><link rel="prefetch" href="/blog/assets/js/37.8525aa80.js"><link rel="prefetch" href="/blog/assets/js/38.61bce62d.js"><link rel="prefetch" href="/blog/assets/js/39.fe251adf.js"><link rel="prefetch" href="/blog/assets/js/4.23541f3f.js"><link rel="prefetch" href="/blog/assets/js/40.b63b141f.js"><link rel="prefetch" href="/blog/assets/js/41.aa3441ef.js"><link rel="prefetch" href="/blog/assets/js/42.86b089de.js"><link rel="prefetch" href="/blog/assets/js/43.94c82fff.js"><link rel="prefetch" href="/blog/assets/js/44.bf1b4a49.js"><link rel="prefetch" href="/blog/assets/js/45.50cb7a1b.js"><link rel="prefetch" href="/blog/assets/js/46.1405e5b4.js"><link rel="prefetch" href="/blog/assets/js/47.9747d39b.js"><link rel="prefetch" href="/blog/assets/js/48.7fc878d9.js"><link rel="prefetch" href="/blog/assets/js/49.af2f5a6f.js"><link rel="prefetch" href="/blog/assets/js/5.9d9a2a02.js"><link rel="prefetch" href="/blog/assets/js/50.2503cd25.js"><link rel="prefetch" href="/blog/assets/js/52.e23e5868.js"><link rel="prefetch" href="/blog/assets/js/53.863c2c53.js"><link rel="prefetch" href="/blog/assets/js/54.c3caf153.js"><link rel="prefetch" href="/blog/assets/js/6.d2c0ba9c.js"><link rel="prefetch" href="/blog/assets/js/7.0a913bea.js"><link rel="prefetch" href="/blog/assets/js/8.0d87c2e3.js"><link rel="prefetch" href="/blog/assets/js/9.d5e29c1a.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.be5625b3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container vuepress-theme-simple"><header class="header"><a href="/blog/" title="返回目录" class="site-name router-link-active">
+      The World of Remnant
+    </a> <div style="clear: both"></div> <!----></header> <section class="post-view"><div class="post-head"><h1 class="post-title">
+      用vue、electron、dexie实现一个桌面端记事本
+    </h1> <time datetime="2022/1/1" title="2022/1/1" pubdate="pubdate" class="post-date">
+  2 年前
+</time></div> <div class="content__default"><p>一个跨平台桌面端记事本，使用IndexedDB作为数据库，也支持读取保存为文件和加密解密功能</p> <p><a href="https://gitee.com/rwbymoe/vue-electron-dexie-notes" target="_blank" rel="noopener noreferrer">vue-electron-dexie-notes<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div></section> <footer class="footer">
+  © 2024
+  <i class="icon-user"></i>
+  Heureka
+  <br>
+  Powered by
+  <a href="https://vuepress.vuejs.org/" rel="noopener" target="_blank">VuePress</a>
+  | Theme
+  <a href="https://github.com/viko16/vuepress-theme-simple" rel="noopener" target="_blank">Simple</a></footer></div><div class="global-ui"></div></div>
+    <script src="/blog/assets/js/app.831f23c9.js" defer></script><script src="/blog/assets/js/2.5e16314c.js" defer></script><script src="/blog/assets/js/51.5c53e086.js" defer></script>
+  </body>
+</html>
